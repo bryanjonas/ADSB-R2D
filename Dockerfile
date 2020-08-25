@@ -278,7 +278,7 @@ RUN conda install --quiet --yes \
     'r-rnaturalearth' \
     'r-rnaturalearthdata'  
 
-RUN conda install --quiet --yes -c hcc r-inla
+#RUN conda install --quiet --yes -c hcc r-inla
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
