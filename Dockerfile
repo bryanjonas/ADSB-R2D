@@ -278,10 +278,7 @@ RUN conda install --quiet --yes \
     'r-rnaturalearth' \
     'r-rnaturalearthdata'  
 
-RUN R -e "r = getOption('repos'); \
-          r['CRAN'] = 'http://cran.us.r-project.org'; \
-          options(repos = r); \
-          install.packages('INLA', repos=c(getOption('repos'), INLA='https://inla.r-inla-download.org/R/stable'), dep=TRUE);"
+RUN conda install --quiet --yes -c hcc r-inla
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
