@@ -165,7 +165,7 @@ USER $NB_UID
 
 # R packages including IRKernel which gets installed globally.
 RUN conda install --quiet --yes \
-    'r-base=3.6.3' \
+    'r-base=4.0.2' \
     'r-caret=6.0*' \
     'r-crayon=1.3*' \
     'r-devtools=2.3*' \
@@ -208,7 +208,7 @@ RUN apt-get update && \
                 libclang-dev \
                 ;
 
-ENV RSTUDIO_PKG=rstudio-server-1.3.959-amd64.deb
+ENV RSTUDIO_PKG=rstudio-server-1.3.1073-amd64.deb
 
 RUN wget -q http://download2.rstudio.org/server/bionic/amd64/${RSTUDIO_PKG}
 RUN dpkg -i ${RSTUDIO_PKG}
@@ -276,7 +276,9 @@ RUN conda install --quiet --yes \
     'r-spatial' \
     'r-lwgeom' \
     'r-rnaturalearth' \
-    'r-rnaturalearthdata'  
+    'r-rnaturalearthdata' \
+    'r-maps' \
+    'r-mapdata'
 
 #RUN conda install --quiet --yes -c hcc r-inla
 
