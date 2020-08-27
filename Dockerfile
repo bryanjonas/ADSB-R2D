@@ -208,7 +208,7 @@ RUN apt-get update && \
                 libclang-dev \
                 ;
 
-ENV RSTUDIO_PKG=rstudio-server-1.3.1073-amd64.deb
+ENV RSTUDIO_PKG=rstudio-server-1.3.959-amd64.deb
 
 RUN wget -q http://download2.rstudio.org/server/bionic/amd64/${RSTUDIO_PKG}
 RUN dpkg -i ${RSTUDIO_PKG}
@@ -216,7 +216,6 @@ RUN rm ${RSTUDIO_PKG}
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
 
 USER $NB_USER
 
