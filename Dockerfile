@@ -280,6 +280,22 @@ RUN conda install --quiet --yes \
     'r-maps' \
     'r-mapdata'
 
+RUN conda install --quiet --yes \
+    'r-spacetime' \
+    'r-gstat' \
+    'r-ccapp' \
+    'r-directedclustering' \
+    'r-fields' \
+    'r-geor' \
+    'r-maptools' \
+    'r-rgdal' \
+    'r-sp' \
+    'r-spatialcovariance' \
+    'r-spatstat' \
+    'r-spbayes' \
+    'r-spdep' \
+    'r-splancs'
+
 #RUN conda install --quiet --yes -c hcc r-inla
 
 # Switch back to jovyan to avoid accidental container runs as root
