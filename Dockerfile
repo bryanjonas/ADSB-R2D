@@ -213,7 +213,8 @@ ENV RSTUDIO_PKG=rstudio-server-1.3.1073-amd64.deb
 #RUN wget -q http://download2.rstudio.org/server/bionic/amd64/${RSTUDIO_PKG}
 #RUN dpkg -i ${RSTUDIO_PKG}
 #RUN rm ${RSTUDIO_PKG}
-RUN sudo apt-get install gdebi-core && \
+RUN sudo apt-get update && \ 
+    apt-get install -y gdebi-core && \
     wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.3.1073-amd64.deb && \
     sudo gdebi rstudio-server-1.3.1073-amd64.deb && \
     apt-get clean && \
