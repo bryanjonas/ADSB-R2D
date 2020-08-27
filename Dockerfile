@@ -298,6 +298,10 @@ RUN conda install --quiet --yes \
 
 #RUN conda install --quiet --yes -c hcc r-inla
 
+USER root
+ADD package /tmp/package
+RUN cd /tmp && R CMD INSTALL package
+
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
 
