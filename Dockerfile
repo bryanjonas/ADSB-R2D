@@ -295,6 +295,9 @@ RUN conda install --quiet --yes \
     'r-spdep' \
     'r-splancs'
 
+RUN conda install --quiet --yes \
+    'r-mapview'
+
 #RUN conda install --quiet --yes -c hcc r-inla
 
 # Switch back to jovyan to avoid accidental container runs as root
