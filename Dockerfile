@@ -296,7 +296,8 @@ RUN conda install --quiet --yes \
     'r-splancs'
 
 RUN conda install --quiet --yes \
-    'r-mapview'
+    'r-mapview' \
+    'r-rgeos'
 
 #RUN conda install --quiet --yes -c hcc r-inla
 
