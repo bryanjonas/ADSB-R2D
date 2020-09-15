@@ -219,13 +219,15 @@ RUN apt-get clean && \
 
 USER $NB_USER
 
-RUN pip install git+https://github.com/jupyterhub/jupyter-rsession-proxy
+#RUN pip install git+https://github.com/jupyterhub/jupyter-rsession-proxy
 
-RUN cd /tmp/ && \
-    git clone --depth 1 https://github.com/jupyterhub/jupyter-server-proxy && \
-    cd jupyter-server-proxy/jupyterlab-server-proxy && \
-    npm install && npm run build && jupyter labextension link . && \
-    npm run build && jupyter lab build
+#RUN cd /tmp/ && \
+#    git clone --depth 1 https://github.com/jupyterhub/jupyter-server-proxy && \
+#    cd jupyter-server-proxy/jupyterlab-server-proxy && \
+#    npm install && npm run build && jupyter labextension link . && \
+#    npm run build && jupyter lab build
+
+RUN jupyter labextension install @jupyterlab/server-proxy
 
 # The desktop package uses /usr/lib/rstudio/bin
 ENV PATH="${PATH}:/usr/lib/rstudio-server/bin"
@@ -242,7 +244,6 @@ RUN pip install git+https://github.com/jupyterlab/jupyterlab-git && \
 ### End install jupyterlab-git
 
 EXPOSE 8888
-
 
 # Configure container startup
 ENTRYPOINT ["tini", "-g", "--"]
