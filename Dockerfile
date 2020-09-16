@@ -227,8 +227,11 @@ USER $NB_USER
 #    npm install && npm run build && jupyter labextension link . && \
 #    npm run build && jupyter lab build
 
-RUN conda install jupyter-server-proxy && \
-    jupyter labextension install @jupyterlab/server-proxy
+RUN conda install --quiet --yes \
+    jupyter-server-proxy \
+    jupyter-rsession-proxy && \
+    jupyter labextension install @jupyterlab/server-proxy && \
+    jupyter lab build
 
 # The desktop package uses /usr/lib/rstudio/bin
 ENV PATH="${PATH}:/usr/lib/rstudio-server/bin"
