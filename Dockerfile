@@ -159,7 +159,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     nano \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
 ### End jupyter/minimal-notebook
 
@@ -219,14 +218,6 @@ RUN apt-get clean && \
 
 USER $NB_USER
 
-#RUN pip install git+https://github.com/jupyterhub/jupyter-rsession-proxy
-
-#RUN cd /tmp/ && \
-#    git clone --depth 1 https://github.com/jupyterhub/jupyter-server-proxy && \
-#    cd jupyter-server-proxy/jupyterlab-server-proxy && \
-#    npm install && npm run build && jupyter labextension link . && \
-#    npm run build && jupyter lab build
-
 RUN conda install --quiet --yes \
     jupyter-server-proxy \
     jupyter-rsession-proxy && \
@@ -241,9 +232,7 @@ ENV LD_LIBRARY_PATH="/usr/lib/R/lib:/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/
 
 ### Install jupyterlab-git extension
 ### Might need to conda pip install from git to get latest version
-#RUN conda install -c conda-forge jupyterlab-git && \
-    #jupyter lab build
-RUN pip install git+https://github.com/jupyterlab/jupyterlab-git && \
+RUN conda install --quiet --yes -c conda-forge jupyterlab-git && \
     jupyter lab build
 ### End install jupyterlab-git
 
