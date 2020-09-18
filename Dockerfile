@@ -291,7 +291,8 @@ RUN conda install --quiet --yes \
 
 RUN conda install --quiet --yes \
     'r-mapview' \
-    'r-rgeos'
+    'r-rgeos' \
+    'r-doparallel'
 
 #RUN conda install --quiet --yes -c hcc r-inla
 
