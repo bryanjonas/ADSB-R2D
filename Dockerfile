@@ -295,7 +295,8 @@ RUN conda install --quiet --yes \
     'r-doparallel' 
     
 RUN conda install --quiet --yes  \
-   'r-plotfunctions'
+   'r-plotfunctions' \
+   'r-animation'
 
 #RUN conda install --quiet --yes -c hcc r-inla
 
