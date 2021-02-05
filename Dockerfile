@@ -300,6 +300,14 @@ RUN conda install --quiet --yes  \
 USER root
 RUN fix-permissions /etc/jupyter/
 
+RUN apt-get update && \
+        apt-get install -y --no-install-recommends \
+                software-properties-common && \
+        sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test && \
+        apt-get update && \
+        apt-get install -y --no-install-recommends \
+                libstdc++6
+
 USER $NB_UID
 
 WORKDIR $HOME
