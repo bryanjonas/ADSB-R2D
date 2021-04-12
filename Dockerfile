@@ -296,6 +296,9 @@ RUN conda install --quiet --yes  \
    'r-plotfunctions' \
    'r-animation'
 
+RUN conda install --quit --yes \
+    'r-domc'
+
 #RUN conda install --quiet --yes -c hcc r-inla
 USER root
 RUN fix-permissions /etc/jupyter/
