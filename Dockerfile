@@ -296,7 +296,7 @@ RUN conda install --quiet --yes  \
    'r-plotfunctions' \
    'r-animation'
 
-RUN conda install --quit --yes \
+RUN conda install --quiet --yes \
     'r-domc'
 
 #RUN conda install --quiet --yes -c hcc r-inla
